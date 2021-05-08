@@ -17,7 +17,6 @@ public class benford{
   public static void frequencyCalculation(String[] salesArray){
     double [] count=new double[10];
     count=inCount_c();
-
     int firstNum;
     for (String s : salesArray) {
       firstNum = Character.getNumericValue(s.charAt(0));
