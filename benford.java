@@ -3,8 +3,6 @@ import java.io.FileNotFoundException;
 import java.nio.file.InvalidPathException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-
 public class benford{ 
   public static void main(String[] args){
    // File reader program in main
