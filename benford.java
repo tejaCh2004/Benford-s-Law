@@ -14,6 +14,9 @@ public class benford{
     int firstNum;
     String newLine = "";
   
+  
+    
+
     for (String s : salesArray) {
         firstNum = Character.getNumericValue(s.charAt(0));
        // System.out.print(s);
