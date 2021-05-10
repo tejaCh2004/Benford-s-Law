@@ -6,7 +6,11 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Benford {
-  public static void main(String[] args) throws java.nio.file.InvalidPathException {
+  public static void main(String[] args) {
+    fileReader();
+  }
+
+  public static void fileReader() throws java.nio.file.InvalidPathException {
     Scanner reader = new Scanner(System.in);
     String newLine = "";
     System.out
@@ -29,7 +33,6 @@ public class Benford {
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     }
-
   }
 
   public static void frequencyCalculation(String[] salesArray) {
