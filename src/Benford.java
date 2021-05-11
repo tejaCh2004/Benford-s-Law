@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Benford {
   public static void main(String[] args) {
-    fileReader();
+	fileReader();
   }
 
   public static void fileReader() throws java.nio.file.InvalidPathException {
@@ -16,6 +16,7 @@ public class Benford {
     System.out
         .println("Enter the entire file path of the file you would like to read. Including the file name (sales.csv)!");
     String fileName = reader.nextLine();
+  //  reader.close();
     File file = new File(fileName);
     // create Scanner sales
     try {
@@ -33,6 +34,15 @@ public class Benford {
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     }
+  }
+  
+  private static void fileWrite(double[] benfordArray) {
+	  Scanner scan = new Scanner(System.in);
+	  System.out
+      .println("Enter the output filename only (results.csv)!");
+       String pathFileName = scan.nextLine();
+       scan.close();
+	   WriteToFile.writeFile(pathFileName, benfordArray);
   }
 
   public static void frequencyCalculation(String[] salesArray) {
@@ -53,13 +63,22 @@ public class Benford {
     }
     double total = salesArray.length;
     double frequency1 = 0;
+    double[] benfordArray = new double[10];
 
     for (int i = 1; i < 10; i++) {
       double frequency = ((count[i]) / total) * 100;
+      benfordArray[i] = frequency;
       System.out.print(i + " ");
       System.out.format("%.1f", frequency);
       System.out.println();
     }
+    
+    fileWrite(benfordArray);
+    PlotChart plotChart = new PlotChart();
+    plotChart.plotGraph(benfordArray);
+    
+
+    
     frequency1 = ((count[1]) / total) * 100;
     if (frequency1 >= 29 && frequency1 <= 32) {
       System.out
