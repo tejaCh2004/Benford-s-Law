@@ -5,12 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
 public class Benford {
   public static void main(String[] args) {
 	fileReader();
   }
 
-  public static void fileReader() throws java.nio.file.InvalidPathException {
+ 
+public static void fileReader() throws java.nio.file.InvalidPathException {
     Scanner reader = new Scanner(System.in);
     String newLine = "";
     System.out
@@ -36,16 +38,24 @@ public class Benford {
     }
   }
   
-  private static void fileWrite(double[] benfordArray) {
+  /**
+ * @author michelle chan
+ * @param benfordArray
+ * 
+ * Calls the WriteToFile file 
+ */
+private static void fileWrite(double[] benfordArray) {
 	  Scanner scan = new Scanner(System.in);
-	  System.out
-      .println("Enter the output filename only (results.csv)!");
+	  // asks user for the file output name
+	  System.out.println("Enter the output filename only (results.csv)!");
        String pathFileName = scan.nextLine();
        scan.close();
+       // calls WriteToFile to persist into the file
 	   WriteToFile.writeFile(pathFileName, benfordArray);
   }
 
-  public static void frequencyCalculation(String[] salesArray) {
+
+public static void frequencyCalculation(String[] salesArray) {
     double[] count = new double[10];
     count = inCount_c();
 
@@ -73,6 +83,11 @@ public class Benford {
       System.out.println();
     }
     
+    /**
+     * @author michelle chan
+     * 
+     * Calls the fileWrite function to writeToFile and plots the graph
+     */
     fileWrite(benfordArray);
     PlotChart plotChart = new PlotChart();
     plotChart.plotGraph(benfordArray);
@@ -89,7 +104,8 @@ public class Benford {
     }
   }
 
-  public static double[] inCount_c() {
+
+public static double[] inCount_c() {
     double[] count = new double[10];
     for (double i = 1; i < 10; i++) {
       count[(int) i] = 0;
