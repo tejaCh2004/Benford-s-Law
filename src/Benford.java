@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
 public class Benford {
   public static void main(String[] args) {
     Scanner reader = new Scanner(System.in);
@@ -31,6 +32,7 @@ public class Benford {
 
   }
 
+<<<<<<< HEAD
   /**
    * @Author : Teja
    * @version: 1.56.1
@@ -44,6 +46,10 @@ public class Benford {
    */
 
   public static void fileReader() throws java.nio.file.InvalidPathException {
+=======
+ 
+public static void fileReader() throws java.nio.file.InvalidPathException {
+>>>>>>> b35156cc5e6d76abea7d8a0c4a7245c476516148
     Scanner reader = new Scanner(System.in);
     String newLine = "";
     // prompt the the user to enter the file name or path. Path would be written as
@@ -75,6 +81,7 @@ public class Benford {
       e.printStackTrace();
     }
   }
+<<<<<<< HEAD
 
   private static void fileWrite(double[] benfordArray) {
     Scanner scan = new Scanner(System.in);
@@ -103,6 +110,27 @@ public class Benford {
     double total = salesArray.length;
     double frequency1 = 0;
     double[] benfordArray = new double[10];
+=======
+  
+  /**
+ * @author michelle chan
+ * @param benfordArray
+ * 
+ * Calls the WriteToFile file 
+ */
+private static void fileWrite(double[] benfordArray) {
+	  Scanner scan = new Scanner(System.in);
+	  // asks user for the file output name
+	  System.out.println("Enter the output filename only (results.csv)!");
+       String pathFileName = scan.nextLine();
+       scan.close();
+       // calls WriteToFile to persist into the file
+	   WriteToFile.writeFile(pathFileName, benfordArray);
+  }
+
+
+public static void frequencyCalculation(String[] salesArray) {
+>>>>>>> b35156cc5e6d76abea7d8a0c4a7245c476516148
     double[] count = new double[10];
     // call method initalCount_c, and store the value in the an array called
     // "count".
@@ -135,7 +163,22 @@ public class Benford {
       System.out.format("%.1f", frequency);
       System.out.println(" %");
     }
+<<<<<<< HEAD
     // frequency of the number 1.
+=======
+    
+    /**
+     * @author michelle chan
+     * 
+     * Calls the fileWrite function to writeToFile and plots the graph
+     */
+    fileWrite(benfordArray);
+    PlotChart plotChart = new PlotChart();
+    plotChart.plotGraph(benfordArray);
+    
+
+    
+>>>>>>> b35156cc5e6d76abea7d8a0c4a7245c476516148
     frequency1 = ((count[1]) / total) * 100;
     // validate to see of the frequency of the "1" being the first digit is between
     // 29 and 32%, using a if condition.
@@ -153,6 +196,7 @@ public class Benford {
 
   }
 
+<<<<<<< HEAD
   /**
    * @Author : Teja
    * @version: 1.56.1
@@ -167,6 +211,10 @@ public class Benford {
    */
   public static double[] initalCount_c() {
     // use a for loop to initialize the frequency value of each number.
+=======
+
+public static double[] inCount_c() {
+>>>>>>> b35156cc5e6d76abea7d8a0c4a7245c476516148
     double[] count = new double[10];
     for (double i = 1; i < 10; i++) {
       count[(int) i] = 0;
